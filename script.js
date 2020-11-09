@@ -30,6 +30,7 @@ for (let [index, button] of btnOpenArray) {
   //// Close Modal
   btnsCloseModal[buttonIndex].addEventListener('click', closeModal);
   overlay.addEventListener('click', closeModal);
+  document.addEventListener('keydown', closeModal);
 }
 
 // ////////// EVENT HANDLER //////////////////////////////////
