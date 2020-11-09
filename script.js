@@ -13,13 +13,23 @@ console.log(modals);
 
 // Then use 'for...of'-loop with the index of each item in 'btnOpenArray' for listening to a click event which toggles each modal to open and close
 for (let [index, button] of btnOpenArray) {
+  ///-> [0, 'button.show-modal'],[1, 'button.show-modal'],[2, 'button.show-modal']
   let buttonIndex = index;
-  function toggleModal() {
+
+  function openModal() {
     // Optionally toggle a class for CSS animations
-    modals[buttonIndex].classList.toggle('hidden');
+    modals[buttonIndex].classList.remove('hidden');
+    overlay.classList.remove('hidden');
   }
-  button.addEventListener('click', toggleModal);
-  btnsCloseModal[buttonIndex].addEventListener('click', toggleModal);
+  function closeModal() {
+    modals[buttonIndex].classList.add('hidden');
+    overlay.classList.add('hidden');
+  }
+  //// Open Modal
+  button.addEventListener('click', openModal);
+  //// Close Modal
+  btnsCloseModal[buttonIndex].addEventListener('click', closeModal);
+  overlay.addEventListener('click', closeModal);
 }
 
 // ////////// EVENT HANDLER //////////////////////////////////
